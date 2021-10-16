@@ -12,10 +12,12 @@ The game ends if you caught all fish or all your strings break.
 - game has 3 fish in the pond
 - the player can throw out hooks in the pond, by pressing a button
 - how far the hook is thrown, depends on how often or long the button was pressed
+- a string breaks after a random amount of throws (min 5 times)
 ​
 ## Backlog
 ​
 - moving fish
+- random fish size
 - to catch a fish, you have to reel them in, by pressing the button multiple times
 - a fish can battle against the players attempt to reel it in
 - the finshing rod string can break, if the fish tries to break free very hard or the player reels to hard

@@ -1,6 +1,7 @@
 "use strict";
 import Background from "./background.js";
 import Fish from "./fish.js";
+import Fisher from "./fisher.js";
 
 class Game {
     constructor(canvas) {
@@ -13,6 +14,7 @@ class Game {
         this.fish = []
         for (let i = 0; i < 3; i++)
             this.fish.push(new Fish(this.canvas))
+        this.fisher = new Fisher(this.canvas)
     }
 
     startLoop() {
@@ -20,7 +22,6 @@ class Game {
             console.log("in loop");
             this.clearCanvas();
             // this.checkAllCollisions();
-            // drawCanvas
             this.drawCanvas();
             if (!this.isGameOver) {
                 window.requestAnimationFrame(loop);
@@ -31,6 +32,7 @@ class Game {
 
     drawCanvas() {
         this.background.draw()
+        this.fisher.drawFisher()
         //draw fish
         this.fish.forEach((fish) => {
             fish.draw()

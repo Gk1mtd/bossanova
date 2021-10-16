@@ -12,7 +12,6 @@ class Fish {
         // this.fishScale = 0.1;
         this.fishScale = randomRange(5, 25)/100    // random fish size
         this.fishValue = (this.fishScale*100).toFixed(0)         // fish value is according to fish size
-        console.log(this.fishValue);
         this.pondXStart = 250
         this.pondYStart = canvas.clientHeight*0.6
         this.pondSizeWidth = canvas.clientWidth

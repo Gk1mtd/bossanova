@@ -21,7 +21,6 @@ class Game {
 
     startLoop() {
         const loop = () => {
-            console.log("in loop");
             this.clearCanvas();
             // this.checkAllCollisions();
             this.drawCanvas();

@@ -1,6 +1,6 @@
-"use-strict";
+"use strict";
 
-// import Game from "./game.mjs";
+import Game from "./game.js";
 
 function fillMainContainerContent(newHTMLContent) {
     const main = document.querySelector("main");
@@ -11,68 +11,61 @@ function buildSplashScreen() {
     fillMainContainerContent(`
         <section class="splash-screen">
             <img src="/images/splash.png" alt="Bossa Nova Splash">
+        </section>
             <div class="goFish">
                 <img src="/images/gofish_button.png" alt="Start Game">
             </div>
-        </section>
+      `);
+    const startButton = document.querySelector(".goFish");
+    startButton.addEventListener("click", buildGameScreen);
+}
+function buildGameOver() {
+    fillMainContainerContent(`
+        <section class="splash-screen">
+            <img src="/images/splash.png" alt="Bossa Nova Splash">
+            <h1>You Lost!</h1>
+            </section>
+            <div class="goFish">
+                <img src="/images/gameOver.png" alt="Game Over!">
+            </div>
       `);
     const startButton = document.querySelector(".goFish");
     startButton.addEventListener("click", buildGameScreen);
 }
 
 function buildGameScreen() {
-    console.log("build game");
     fillMainContainerContent(`
         <section class="game-screen">
           <canvas></canvas>
-            <div class="goFish">
-                <img src="/images/restart_button.png" alt="Start Game">
-            </div>
-        </section>  
+          </section>  
+          <div class="goFish">
+              <img src="/images/restart_button.png" alt="restart Game">
+          </div>
       `);
-    // to restart the game imidiatly
+    // to restart the game immediately 
     const startButton = document.querySelector(".goFish");
     startButton.addEventListener("click", buildGameScreen);
 
-    // get
-    const width = document.querySelector(".game-screen").offsetWidth;
-    const height = document.querySelector(".game-screen").offsetHeight;
-
+    // gets and sets canvas width and height
+    // const width = document.querySelector(".game-screen").offsetWidth;
+    // const height = document.querySelector(".game-screen").offsetHeight;
     const canvasElement = document.querySelector("canvas");
-    canvasElement.setAttribute("width", width);
-    canvasElement.setAttribute("height", height);
+    canvasElement.setAttribute("width", 800);
+    canvasElement.setAttribute("height", 600);
 
-    // const game = new Game(canvasElement);
-    // game.gameOverCallback(buildGameOver);
+    const game = new Game(canvasElement);
+    game.startLoop();
 
-    // game.startLoop();
+    //document.addEventListener("keydown", setPlayerDirection);
 
-    // const setPlayerDirection = (event) => {
-    //     if (event.code === "ArrowUp") {
-    //         game.player.setDirection(-1);
-    //     } else if (event.code === "ArrowDown") {
-    //         game.player.setDirection(1);
-    //     }
-    // };
-
-    // document.addEventListener("keydown", setPlayerDirection);
+    if (game.isGameOver === true)
+        buildGameOver();
 }
 
-function buildGameOver() {
-    fillMainContainerContent(`
-        <section class="splash-screen">
-            <img src="/images/splash.png" alt="Bossa Nova Splash">
-            <div class="goFish">
-                <img src="/images/gofish_button.png" alt="Start Game">
-            </div>
-        </section>
-      `);
-    const startButton = document.querySelector(".goFish");
-    startButton.addEventListener("click", buildGameScreen);
-}
 
 const main = () => {
-    buildSplashScreen();
+    //buildSplashScreen();      //uncomment this to start with splashscreen
+    buildGameScreen();          //comment this to start with splashscreen
 };
 
 window.addEventListener("load", main);

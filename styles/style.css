@@ -1,10 +1,9 @@
 body {
-    font-family: 'Sansita Swashed', cursive;
-    background-color: rgb(41, 41, 41);
-    color: white;
+    background-color: rgb(rgb(31, 33, 35));
 }
-
-.splash-screen {
+.container {
+    font-family: 'Sansita Swashed', cursive;
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,6 +13,7 @@ body {
 .splash-screen img {
     width: 60%;
     height: auto;
+    margin: 0 20% 15%;
 }
 
 .goFish {
@@ -26,6 +26,6 @@ body {
     height: auto;
 }
 
-.game-screen {
-    width: 100%;
+canvas {
+    border: 5px solid white;
 }

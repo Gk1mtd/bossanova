@@ -2,6 +2,7 @@
 import Background from "./background.js";
 import Fish from "./fish.js";
 import Fisher from "./fisher.js";
+import Hook from "./hook.js";
 
 class Game {
     constructor(canvas) {
@@ -15,6 +16,7 @@ class Game {
         for (let i = 0; i < 3; i++)
             this.fish.push(new Fish(this.canvas))
         this.fisher = new Fisher(this.canvas)
+        this.hook = new Hook(this.canvas)
     }
 
     startLoop() {
@@ -33,6 +35,8 @@ class Game {
     drawCanvas() {
         this.background.draw()
         this.fisher.drawFisher()
+        this.hook.drawHook()
+        this.fisher.drawLine(this.hook.getPosition())
         //draw fish
         this.fish.forEach((fish) => {
             fish.draw()

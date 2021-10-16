@@ -11,9 +11,17 @@ class Fisher{
         this.fisherScale = 0.25;
     }
 
-
     drawFisher() {
         this.ctx.drawImage(this.fisherImg, 30, 110, this.fisherWidth*this.fisherScale, this.fisherHeight*this.fisherScale)
+    }
+
+    drawLine(hookPosition) {
+        this.ctx.beginPath();
+        this.ctx.moveTo(200, 120);
+        this.ctx.lineTo(hookPosition.posX, hookPosition.posY);
+        this.ctx.strokeStyle = "White";
+        this.ctx.lineWidth = 2;
+        this.ctx.stroke(); 
     }
 }
 

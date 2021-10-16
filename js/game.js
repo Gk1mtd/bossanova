@@ -36,7 +36,7 @@ class Game {
         this.background.draw()
         this.fisher.drawFisher()
         this.hook.drawHook()
-        this.fisher.drawLine(this.hook.getPosition())
+        this.fisher.drawLine(this.hook.getPosition())   //draws the line from fishers rod to hook
         //draw fish
         this.fish.forEach((fish) => {
             fish.draw()

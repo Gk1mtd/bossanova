@@ -1,5 +1,14 @@
 {
-    "scripts": {
+        "name": "bossa-nova",
+        "version": "1.0.0",
+        "license": "",
+        "scripts":
+        {
+            "test": "jest",
+            "test:watch": "jest --watchAll --verbose=false"
+        },
+    "scripts": 
+    {
         "test": "jest"
     }
 }

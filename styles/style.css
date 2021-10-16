@@ -1,0 +1,31 @@
+body {
+    font-family: 'Sansita Swashed', cursive;
+    background-color: rgb(41, 41, 41);
+    color: white;
+}
+
+.splash-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.splash-screen img {
+    width: 60%;
+    height: auto;
+}
+
+.goFish {
+    width: 100%;
+}
+
+.goFish img {
+    width: 20%;
+    margin: 0 40%;
+    height: auto;
+}
+
+.game-screen {
+    width: 100%;
+}

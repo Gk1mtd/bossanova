@@ -64,8 +64,8 @@ function buildGameScreen() {
 
 
 const main = () => {
-    //buildSplashScreen();      //uncomment this to start with splashscreen
-    buildGameScreen();          //comment this to start with splashscreen
+    buildSplashScreen();      //uncomment this to start with splashscreen
+    //buildGameScreen();          //comment this to start with splashscreen
 };
 
 window.addEventListener("load", main);

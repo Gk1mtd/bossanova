@@ -9,7 +9,10 @@ class Game {
         this.isGameOver = false
 
         this.background = new Background(this.canvas)
-        this.fish = new Fish(this.canvas)
+        //adding 3 fish into an array for later drawing
+        this.fish = []
+        for (let i = 0; i < 3; i++)
+            this.fish.push(new Fish(this.canvas))
     }
 
     startLoop() {
@@ -28,7 +31,10 @@ class Game {
 
     drawCanvas() {
         this.background.draw()
-        this.fish.draw()
+        //draw fish
+        this.fish.forEach((fish) => {
+            fish.draw()
+        })
 
         this.ctx.font = "30px Arial";
         this.ctx.fillText("Hello World", 10, 50);

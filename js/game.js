@@ -1,5 +1,6 @@
 "use strict";
 import Background from "./background.js";
+import Fish from "./fish.js";
 
 class Game {
     constructor(canvas) {
@@ -8,6 +9,7 @@ class Game {
         this.isGameOver = false
 
         this.background = new Background(this.canvas)
+        this.fish = new Fish(this.canvas)
     }
 
     startLoop() {
@@ -26,6 +28,8 @@ class Game {
 
     drawCanvas() {
         this.background.draw()
+        this.fish.draw()
+
         this.ctx.font = "30px Arial";
         this.ctx.fillText("Hello World", 10, 50);
 

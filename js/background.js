@@ -13,6 +13,7 @@ class Background {
 
     draw() {
         this.drawWaves()
+        this.drawGround()
     }
     
     drawWaves() {
@@ -25,7 +26,16 @@ class Background {
                 this.waveHeight * this.waveScale    //height
             );
         }
-        
+    }
+    
+    drawGround() {
+        this.ctx.beginPath();
+        this.ctx.moveTo(0, this.canvas.clientHeight * 0.5);
+        this.ctx.lineTo(200, this.canvas.clientHeight * 0.5);
+        this.ctx.lineTo(200, this.canvas.clientHeight);
+        this.ctx.strokeStyle = "White";
+        this.ctx.lineWidth = 5;
+        this.ctx.stroke(); 
     }
 }
 

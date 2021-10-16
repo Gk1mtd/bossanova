@@ -13,7 +13,7 @@ class Game {
     startLoop() {
         const loop = () => {
             console.log("in loop");
-            // this.clearCanvas();
+            this.clearCanvas();
             // this.checkAllCollisions();
             // drawCanvas
             this.drawCanvas();
@@ -29,6 +29,9 @@ class Game {
         this.ctx.font = "30px Arial";
         this.ctx.fillText("Hello World", 10, 50);
 
+    }
+    clearCanvas(){
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }
 

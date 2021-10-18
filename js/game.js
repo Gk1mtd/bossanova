@@ -10,6 +10,7 @@ class Game {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d");
         this.isGameOver = false;
+        this.gameOver
 
         this.background = new Background(this.canvas);
         this.hud = new HUD(this.canvas);
@@ -68,6 +69,7 @@ class Game {
         if (!this.fish.length) {
             this.isGameOver = true
             console.log("Game is Over");
+            this.gameOver()
         }
     }
 
@@ -93,6 +95,10 @@ class Game {
 
     clearCanvas() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+
+    gameOverCallback(callback) {
+        this.gameOver = callback
     }
 }
 

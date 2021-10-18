@@ -23,10 +23,10 @@ function buildGameOver() {
     fillMainContainerContent(`
         <section class="splash-screen">
             <img src="/images/splash.png" alt="Bossa Nova Splash">
-            <h1>You Lost!</h1>
+            <h1>You Won!</h1>
             </section>
             <div class="goFish">
-                <img src="/images/gameOver.png" alt="Game Over!">
+                <img src="/images/gameOverWon.png" alt="Game Over!">
             </div>
       `);
     const startButton = document.querySelector(".goFish");
@@ -55,9 +55,8 @@ function buildGameScreen() {
 
     const game = new Game(canvasElement);
     game.startLoop();
-
-    if (game.isGameOver === true)
-        buildGameOver();
+    
+    game.gameOverCallback(buildGameOver)
 }
 
 

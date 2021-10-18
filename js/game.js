@@ -64,7 +64,12 @@ class Game {
         });
     }
 
-    updateGame() {}
+    updateGame() {
+        if (!this.fish.length) {
+            this.isGameOver = true
+            console.log("Game is Over");
+        }
+    }
 
     checkHookCollisionWithFish() {
         // check if hook is on collision with a fish on x-axis
@@ -78,9 +83,10 @@ class Game {
                 this.hook.getPosition().posX <
                     fish.posX + (fish.fishWidth * fish.fishScale)/2;
 
-            console.log(isHookInFish);
-            if (isHookInFish)
+            if (isHookInFish){
+                this.hook.setPosition(fish.posX, fish.posY)
                 this.fish.splice(this.fish.indexOf(fish), 1)
+            }
         });
     }
 

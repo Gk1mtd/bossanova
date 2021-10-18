@@ -16,12 +16,15 @@ class Fish {
         this.pondYStart = canvas.clientHeight*0.6
         this.pondSizeWidth = canvas.clientWidth
         this.pondSizeHeight = 600
-        this.posX = randomRange(this.pondXStart, this.pondSizeWidth)-(this.fishWidth*this.fishScale)/2
-        this.posY = randomRange(this.pondYStart, this.pondSizeHeight)-(this.fishHeight*this.fishScale)/2
+        this.posX = randomRange(this.pondXStart+(this.fishWidth*this.fishScale)/2, this.pondSizeWidth)-(this.fishWidth*this.fishScale)/2
+        this.posY = randomRange(this.pondYStart+(this.fishHeight*this.fishScale)/2, this.pondSizeHeight)-(this.fishHeight*this.fishScale)/2
     }
 
     draw() {
-        this.ctx.drawImage(this.imgFish, this.posX, this.posY, this.fishWidth*this.fishScale, this.fishHeight*this.fishScale)
+        this.ctx.fillStyle = "red"
+        this.ctx.fillRect(this.posX, this.posY, 10, 10)
+        this.ctx.fillStyle = "white"
+        this.ctx.drawImage(this.imgFish, this.posX-this.fishWidth*this.fishScale/2, this.posY-this.fishHeight*this.fishScale/2, this.fishWidth*this.fishScale, this.fishHeight*this.fishScale)
     }
 }
 

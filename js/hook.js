@@ -19,7 +19,7 @@ class Hook{
     }
 
     setPosition(x, y) {
-        this.posX = x
+        this.posX = x+200
         this.posY = y
     }
     getPosition() {

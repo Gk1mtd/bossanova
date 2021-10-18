@@ -29,7 +29,8 @@ class HUD {
     }
 
     setBarPower(newBarPower) {
-        this.barPower = newBarPower
+        //this.barPower = newBarPower
+        this.barPower = (newBarPower*130)/550
     }
 }
 

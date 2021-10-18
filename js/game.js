@@ -22,7 +22,7 @@ class Game {
         document.addEventListener("keydown", event => {
             if (event.code === "Space") {
                 this.fisher.setThrowPower()
-                //this.hud.setBarPower(this.fisher.calculatedPower)
+                this.hud.setBarPower(this.fisher.calculatedPower)
                 console.log(this.fisher.calculatedPower);
             }
         });

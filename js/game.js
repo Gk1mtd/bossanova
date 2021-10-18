@@ -29,7 +29,6 @@ class Game {
             if (event.code === "Space") {
                 this.fisher.setThrowPower()
                 this.hud.setBarPower(this.fisher.calculatedPower)
-                console.log(this.fisher.calculatedPower);
             }
         });
         document.addEventListener("keyup", event => {
@@ -38,6 +37,9 @@ class Game {
                 this.fisher.resetThrowPower()
             }
         });
+        function test () {
+            console.log("bla");
+        }
     }
 
     startLoop() {

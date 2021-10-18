@@ -13,7 +13,7 @@ body {
 .splash-screen img {
     width: 60%;
     height: auto;
-    margin: 0 20% 15%;
+    margin: 0 20% 5%;
 }
 
 .goFish {
@@ -28,4 +28,8 @@ body {
 
 canvas {
     /* border: 5px solid white; */
+}
+
+h1 {
+    margin-bottom: 50px;
 }

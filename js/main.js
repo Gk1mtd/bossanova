@@ -23,11 +23,11 @@ function buildGameOver() {
     fillMainContainerContent(`
         <section class="splash-screen">
             <img src="/images/splash.png" alt="Bossa Nova Splash">
-            <h1>You Won!</h1>
-            </section>
-            <div class="goFish">
-                <img src="/images/gameOverWon.png" alt="Game Over!">
-            </div>
+        </section>
+        <h1>You Won!</h1>
+        <div class="goFish">
+            <img src="/images/gameOverWon.png" alt="Game Over!">
+        </div>
       `);
     const startButton = document.querySelector(".goFish");
     startButton.addEventListener("click", buildGameScreen);

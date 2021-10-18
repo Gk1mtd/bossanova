@@ -32,7 +32,7 @@ class Game {
         });
         document.addEventListener("keyup", (event) => {
             if (event.code === "Space") {
-                this.hook.setPosition(this.fisher.calculatedPower, 300);
+                this.hook.setPosition(this.fisher.calculatedPower+200, 300);    //+200 is the pixel width of the ground
                 this.fisher.resetThrowPower();
                 this.checkHookCollisionWithFish();
             }
@@ -84,6 +84,7 @@ class Game {
                     fish.posX + (fish.fishWidth * fish.fishScale)/2;
 
             if (isHookInFish){
+                //this.hook.setPosition(fish.posX, fish.posY)
                 this.hook.setPosition(fish.posX, fish.posY)
                 this.fish.splice(this.fish.indexOf(fish), 1)
             }

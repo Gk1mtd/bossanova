@@ -21,8 +21,8 @@ class Fish {
     }
 
     draw() {
-        this.ctx.fillStyle = "red"
-        this.ctx.fillRect(this.posX, this.posY, 10, 10)
+        // this.ctx.fillStyle = "red"       //draws a red rect on fish position
+        // this.ctx.fillRect(this.posX, this.posY, 10, 10)
         this.ctx.fillStyle = "white"
         this.ctx.drawImage(this.imgFish, this.posX-this.fishWidth*this.fishScale/2, this.posY-this.fishHeight*this.fishScale/2, this.fishWidth*this.fishScale, this.fishHeight*this.fishScale)
     }

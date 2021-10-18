@@ -56,8 +56,6 @@ function buildGameScreen() {
     const game = new Game(canvasElement);
     game.startLoop();
 
-    //document.addEventListener("keydown", setPlayerDirection);
-
     if (game.isGameOver === true)
         buildGameOver();
 }

@@ -19,6 +19,12 @@ class Game {
             this.fish.push(new Fish(this.canvas))
         this.fisher = new Fisher(this.canvas)
         this.hook = new Hook(this.canvas)
+        
+        /* Event listener for space key
+            if "space key" is pressed the throw power of the fisher object will be raised
+            if "space key" is released the hook will be thrown to the calculated distance (calculated in fisher object)
+                HUD power bar will be filled as well
+        */
         document.addEventListener("keydown", event => {
             if (event.code === "Space") {
                 this.fisher.setThrowPower()
@@ -60,7 +66,6 @@ class Game {
     }
     
     updateGame(){
-        //
     }
 
     clearCanvas(){

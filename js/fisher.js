@@ -9,6 +9,7 @@ class Fisher{
         this.fisherWidth = 800;
         this.fisherHeight = 800;
         this.fisherScale = 0.25;
+        this.throwPower = 200
     }
 
     drawFisher() {
@@ -22,6 +23,13 @@ class Fisher{
         this.ctx.strokeStyle = "White";
         this.ctx.lineWidth = 2;
         this.ctx.stroke(); 
+    }
+
+    setThrowPower() {
+        this.throwPower++
+    }
+    resetThrowPower() {
+        this.throwPower = 200
     }
 }
 

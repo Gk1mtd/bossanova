@@ -19,16 +19,16 @@ class Game {
             this.fish.push(new Fish(this.canvas))
         this.fisher = new Fisher(this.canvas)
         this.hook = new Hook(this.canvas)
-        this.powerCounter = 0
         document.addEventListener("keydown", event => {
             if (event.code === "Space") {
                 this.fisher.setThrowPower()
-                this.hud.setBarPower(this.fisher.throwPower-200)
+                //this.hud.setBarPower(this.fisher.calculatedPower)
+                console.log(this.fisher.calculatedPower);
             }
         });
         document.addEventListener("keyup", event => {
             if (event.code === "Space") {
-                this.hook.setPosition(this.fisher.throwPower, 300)
+                this.hook.setPosition(this.fisher.calculatedPower, 300)
                 this.fisher.resetThrowPower()
             }
         });

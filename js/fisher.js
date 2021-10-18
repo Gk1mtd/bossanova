@@ -9,7 +9,8 @@ class Fisher{
         this.fisherWidth = 800;
         this.fisherHeight = 800;
         this.fisherScale = 0.25;
-        this.throwPower = 200
+        this.throwPower = 0
+        this.calculatedPower = 0
     }
 
     drawFisher() {
@@ -27,9 +28,11 @@ class Fisher{
 
     setThrowPower() {
         this.throwPower++
+        // calculate Power
+        this.calculatedPower = this.throwPower**1.6
     }
     resetThrowPower() {
-        this.throwPower = 200
+        this.throwPower = 0
     }
 }
 

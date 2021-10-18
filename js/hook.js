@@ -9,8 +9,9 @@ class Hook{
         this.hookWidth = 800;
         this.hookHeight = 800;
         this.hookScale = 0.1;
-        this.posX = 250
-        this.posY = this.canvas.clientHeight/2
+        this.posX = 200
+        // this.posY = this.canvas.clientHeight/2
+        this.posY = 200
     }
 
     drawHook() {

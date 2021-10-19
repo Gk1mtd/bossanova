@@ -6,6 +6,9 @@ Bossa Nova is a game, where the player have to catch fish from a pond. Press a b
 The fish randomly appear in the pond.
 
 The game ends if you caught all fish or all your strings break.
+
+## Video
+- v0.3 https://youtu.be/N2RshRSR5cY
 ​
 ## MVP (DOM - CANVAS)
 ​

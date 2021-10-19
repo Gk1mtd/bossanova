@@ -6,7 +6,7 @@ class Fish {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d");
         this.imgFish = new Image();
-        this.imgFish.src = "/images/fish.png";
+        this.imgFish.src = "./images/fish.png";
         this.fishWidth = 800;
         this.fishHeight = 800;
         // this.fishScale = 0.1;

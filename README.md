@@ -9,7 +9,6 @@ The game ends if you caught all fish or all your strings break.
 
 ## Video
 - v0.3 https://youtu.be/N2RshRSR5cY
-- <iframe width="560" height="315" src="https://www.youtube.com/embed/N2RshRSR5cY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ​
 ## MVP (DOM - CANVAS)
 ​

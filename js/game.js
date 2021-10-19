@@ -82,16 +82,17 @@ class Game {
 
     checkHookCollisionWithFish() {
         // check if hook is on collision with a fish on x-axis, removes the fish afterwards
-        const foundFishOnHook = this.fish.findIndex(fish => {
+        for (let fish of this.fish) {
             let isHookInFish =
                 this.hook.getPosition().posX >
                     fish.posX - (fish.fishWidth * fish.fishScale)/2 &&
                 this.hook.getPosition().posX <
                     fish.posX + (fish.fishWidth * fish.fishScale)/2;
-            if(isHookInFish)
-                return true
-        })
-        this.fish.splice(foundFishOnHook, 1)
+            if(isHookInFish){
+                this.hook.setPosition(fish.posX, fish.posY)
+                this.fish.splice(this.fish.indexOf(fish), 1)
+            }
+        }
     }
 
     clearCanvas() {

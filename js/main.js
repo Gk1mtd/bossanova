@@ -19,6 +19,7 @@ function buildSplashScreen() {
     const startButton = document.querySelector(".goFish");
     startButton.addEventListener("click", buildGameScreen);
 }
+
 function buildGameWon() {
     fillMainContainerContent(`
         <section class="splash-screen">
@@ -32,6 +33,7 @@ function buildGameWon() {
     const startButton = document.querySelector(".goFish");
     startButton.addEventListener("click", buildGameScreen);
 }
+
 function buildGameOver() {
     fillMainContainerContent(`
         <section class="splash-screen">
@@ -59,9 +61,6 @@ function buildGameScreen() {
     const startButton = document.querySelector(".goFish");
     startButton.addEventListener("click", buildGameScreen);
 
-    // gets and sets canvas width and height
-    // const width = document.querySelector(".game-screen").offsetWidth;
-    // const height = document.querySelector(".game-screen").offsetHeight;
     const canvasElement = document.querySelector("canvas");
     canvasElement.setAttribute("width", 800);
     canvasElement.setAttribute("height", 600);
@@ -71,9 +70,7 @@ function buildGameScreen() {
     
     game.gameOverCallback(buildGameOver)
     game.gameWonCallback(buildGameWon)
-
 }
-
 
 const main = () => {
     buildSplashScreen();      //uncomment this to start with splashscreen

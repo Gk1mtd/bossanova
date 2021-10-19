@@ -5,7 +5,7 @@ class Background {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d");
         this.imgWaves = new Image();
-        this.imgWaves.src = "/images/waves.png";
+        this.imgWaves.src = "./images/waves.png";
         this.waveWidth = 800;
         this.waveHeight = 315;
         this.waveScale = 0.1;

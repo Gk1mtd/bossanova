@@ -10,10 +10,10 @@ function fillMainContainerContent(newHTMLContent) {
 function buildSplashScreen() {
     fillMainContainerContent(`
         <section class="splash-screen">
-            <img src="/images/splash.png" alt="Bossa Nova Splash">
+            <img src="./images/splash.png" alt="Bossa Nova Splash">
         </section>
             <div class="goFish">
-                <img src="/images/gofish_button.png" alt="Start Game">
+                <img src="./images/gofish_button.png" alt="Start Game">
             </div>
       `);
     const startButton = document.querySelector(".goFish");
@@ -22,11 +22,11 @@ function buildSplashScreen() {
 function buildGameOver() {
     fillMainContainerContent(`
         <section class="splash-screen">
-            <img src="/images/splash.png" alt="Bossa Nova Splash">
+            <img src="./images/splash.png" alt="Bossa Nova Splash">
         </section>
         <h1>You Won!</h1>
         <div class="goFish">
-            <img src="/images/gameOverWon.png" alt="Game Over!">
+            <img src="./images/gameOverWon.png" alt="Game Over!">
         </div>
       `);
     const startButton = document.querySelector(".goFish");
@@ -39,7 +39,7 @@ function buildGameScreen() {
           <canvas></canvas>
           </section>  
           <div class="goFish">
-              <img src="/images/restart_button.png" alt="restart Game">
+              <img src="./images/restart_button.png" alt="restart Game">
           </div>
       `);
     // to restart the game immediately 

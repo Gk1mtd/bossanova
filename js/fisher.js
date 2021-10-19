@@ -5,7 +5,7 @@ class Fisher{
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d");
         this.fisherImg = new Image();
-        this.fisherImg.src = "/images/fisher.png";
+        this.fisherImg.src = "./images/fisher.png";
         this.fisherWidth = 800;
         this.fisherHeight = 800;
         this.fisherScale = 0.25;

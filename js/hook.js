@@ -5,7 +5,7 @@ class Hook{
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d");
         this.hookImg = new Image();
-        this.hookImg.src = "/images/hook.png";
+        this.hookImg.src = "./images/hook.png";
         this.hookWidth = 800;
         this.hookHeight = 800;
         this.hookScale = 0.1;

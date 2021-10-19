@@ -91,7 +91,7 @@ class Game {
             if(isHookInFish){
                 this.hook.setPosition(fish.posX, fish.posY)
                 this.fish.splice(this.fish.indexOf(fish), 1)
-                break
+                break   // so only first fish will be catched, instead of all //if fish are stacked
             }
         }
     }

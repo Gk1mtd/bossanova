@@ -70,6 +70,8 @@ function buildGameScreen() {
     game.startLoop();
     
     game.gameOverCallback(buildGameOver)
+    game.gameWonCallback(buildGameWon)
+
 }
 
 

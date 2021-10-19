@@ -10,7 +10,9 @@ class Game {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d");
         this.isGameOver = false;
+        this.isGameWon = false;
         this.gameOver
+        this.gameWon
 
         this.background = new Background(this.canvas);
         this.hud = new HUD(this.canvas);
@@ -47,7 +49,7 @@ class Game {
             this.updateGame();
             // this.checkAllCollisions();
             this.drawCanvas();
-            if (!this.isGameOver) {
+            if (!this.isGameOver && !this.isGameWon) {
                 window.requestAnimationFrame(loop);
             }
         };
@@ -69,7 +71,7 @@ class Game {
     updateGame() {
         // checks if fish array is empty, if empty all fish are catched and game is over: Won!
         if (this.fish.length === 0)
-            this.isGameOver = true
+            this.isGameWon = true
         
         // checks if fisher has no health, sets gameover if so: Lost!
         if (this.fisher.health === 0)
@@ -78,6 +80,9 @@ class Game {
         // checks if game is over
         if (this.isGameOver)
             this.gameOver()
+        else if (this.isGameWon)
+            this.gameWon()
+        
     }
 
     checkHookCollisionWithFish() {
@@ -102,6 +107,9 @@ class Game {
 
     gameOverCallback(callback) {
         this.gameOver = callback
+    }
+    gameWonCallback(callback) {
+        this.gameWon = callback
     }
 }
 

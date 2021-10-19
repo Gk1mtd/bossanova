@@ -11,6 +11,7 @@ class Fisher{
         this.fisherScale = 0.25;
         this.throwPower = 0
         this.calculatedPower = 0
+        this.health = 5
     }
 
     drawFisher() {
@@ -33,6 +34,12 @@ class Fisher{
     }
     resetThrowPower() {
         this.throwPower = 0
+    }
+
+    // 
+    setHealth (term) {
+        this.health+=term
+        console.log("Fisher lost Live", this.health);
     }
 }
 

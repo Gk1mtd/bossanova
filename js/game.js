@@ -36,6 +36,7 @@ class Game {
                 this.hook.setPosition(this.fisher.calculatedPower+200, 300);    //+200 is the pixel width of the ground
                 this.fisher.resetThrowPower();
                 this.checkHookCollisionWithFish();
+                this.fisher.setHealth(-1)
             }
         });
     }
@@ -66,31 +67,31 @@ class Game {
     }
 
     updateGame() {
-        if (!this.fish.length) {
+        // checks if fish array is empty, if empty all fish are catched and game is over: Won!
+        if (this.fish.length === 0)
             this.isGameOver = true
-            console.log("Game is Over");
+        
+        // checks if fisher has no health, sets gameover if so: Lost!
+        if (this.fisher.health === 0)
+            this.isGameOver = true
+        
+        // checks if game is over
+        if (this.isGameOver)
             this.gameOver()
-        }
     }
 
     checkHookCollisionWithFish() {
-        // check if hook is on collision with a fish on x-axis
-        this.fish.forEach((fish) => {
-            // collision detection with hook
-            // console.log(this.hook.getPosition().posX);
-            // console.log(fish.posX-fish.fishWidth*fish.fishScale);
+        // check if hook is on collision with a fish on x-axis, removes the fish afterwards
+        const foundFishOnHook = this.fish.findIndex(fish => {
             let isHookInFish =
                 this.hook.getPosition().posX >
                     fish.posX - (fish.fishWidth * fish.fishScale)/2 &&
                 this.hook.getPosition().posX <
                     fish.posX + (fish.fishWidth * fish.fishScale)/2;
-
-            if (isHookInFish){
-                //this.hook.setPosition(fish.posX, fish.posY)
-                this.hook.setPosition(fish.posX, fish.posY)
-                this.fish.splice(this.fish.indexOf(fish), 1)
-            }
-        });
+            if(isHookInFish)
+                return true
+        })
+        this.fish.splice(foundFishOnHook, 1)
     }
 
     clearCanvas() {

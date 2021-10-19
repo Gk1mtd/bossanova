@@ -91,6 +91,7 @@ class Game {
             if(isHookInFish){
                 this.hook.setPosition(fish.posX, fish.posY)
                 this.fish.splice(this.fish.indexOf(fish), 1)
+                break
             }
         }
     }

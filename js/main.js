@@ -19,7 +19,7 @@ function buildSplashScreen() {
     const startButton = document.querySelector(".goFish");
     startButton.addEventListener("click", buildGameScreen);
 }
-function buildGameOver() {
+function buildGameWon() {
     fillMainContainerContent(`
         <section class="splash-screen">
             <img src="./images/splash.png" alt="Bossa Nova Splash">
@@ -27,6 +27,19 @@ function buildGameOver() {
         <h1>You Won!</h1>
         <div class="goFish">
             <img src="./images/gameOverWon.png" alt="Game Over!">
+        </div>
+      `);
+    const startButton = document.querySelector(".goFish");
+    startButton.addEventListener("click", buildGameScreen);
+}
+function buildGameOver() {
+    fillMainContainerContent(`
+        <section class="splash-screen">
+            <img src="./images/splash.png" alt="Bossa Nova Splash">
+        </section>
+        <h1>You Lost!</h1>
+        <div class="goFish">
+            <img src="./images/gameOver.png" alt="Game Over!">
         </div>
       `);
     const startButton = document.querySelector(".goFish");

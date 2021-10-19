@@ -88,7 +88,7 @@ class Game {
     checkHookCollisionWithFish() {
         // check if hook is on collision with a fish on x-axis, removes the fish afterwards
         for (let fish of this.fish) {
-            let isHookInFish =
+            let isHookInFish =                  //condition, of when the hook lands on a fish
                 this.hook.getPosition().posX >
                     fish.posX - (fish.fishWidth * fish.fishScale)/2 &&
                 this.hook.getPosition().posX <

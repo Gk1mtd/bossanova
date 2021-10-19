@@ -39,7 +39,7 @@ class Fisher{
     // 
     setHealth (term) {
         this.health+=term
-        console.log("Fisher lost Live", this.health);
+        //console.log("Fisher lost Live", this.health);
     }
 }
 

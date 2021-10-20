@@ -59,7 +59,7 @@ class Game {
     drawCanvas() {
         this.background.draw();
         this.hud.draw();
-        this.fisher.drawFisher();
+        this.fisher.draw();
         this.hook.drawHook();
         this.fisher.drawLine(this.hook.getPosition()); //draws the line from fishers rod to hook
         //draw fish
@@ -78,10 +78,10 @@ class Game {
             this.isGameOver = true
         
         // checks if game is over
-        if (this.isGameOver)
-            this.gameOver()
-        else if (this.isGameWon)
+        if (this.isGameWon)
             this.gameWon()
+        else if (this.isGameOver)
+            this.gameOver()
         
     }
 

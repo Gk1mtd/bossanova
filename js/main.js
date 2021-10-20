@@ -51,12 +51,20 @@ function buildGameOver() {
 function buildGameScreen() {
     fillMainContainerContent(`
         <section class="game-screen">
-          <canvas></canvas>
-          </section>  
-          <div class="goFish">
-              <img src="./images/restart_button.png" alt="restart Game">
-          </div>
+            <canvas></canvas>
+            </section>  
+        <div class="goFish">
+            <img src="./images/restart_button.png" alt="restart Game">
+        </div>
+        <audio id="myAudio" loop>
+            <source src="sound/bossa_nova.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
       `);
+    
+    // add music, plays when game screen starts or restarts
+    let x = document.getElementById("myAudio"); 
+    x.play(); 
     // to restart the game immediately 
     const startButton = document.querySelector(".goFish");
     startButton.addEventListener("click", buildGameScreen);

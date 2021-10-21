@@ -66,8 +66,8 @@ function buildGameScreen() {
       `);
     
     // add music, plays when game screen starts or restarts
-    let x = document.getElementById("myAudio"); 
-    x.play(); 
+    let music = document.getElementById("myAudio"); 
+    music.play(); 
     // to restart the game immediately 
     const startButton = document.querySelector(".goFish");
     startButton.addEventListener("click", buildGameScreen);
@@ -76,11 +76,13 @@ function buildGameScreen() {
     canvasElement.setAttribute("width", 800);
     canvasElement.setAttribute("height", 600);
 
+    
     const game = new Game(canvasElement);
     game.startLoop();
     
     game.gameOverCallback(buildGameOver)
     game.gameWonCallback(buildGameWon)
+    game.resetGameCallback()
 }
 
 const main = () => {

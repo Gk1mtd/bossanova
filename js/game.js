@@ -21,7 +21,9 @@ class Game {
         this.hud = new HUD(this.canvas);
         //adding 3 fish into an array for later drawing
         this.fish = [];
-        for (let i = 0; i < 3; i++) this.fish.push(new Fish(this.canvas));
+        for (let i = 0; i < 3; i++){
+            this.fish.push(new Fish(this.canvas));
+        }
         this.fisher = new Fisher(this.canvas);
         this.hook = new Hook(this.canvas);
 
@@ -85,11 +87,13 @@ class Game {
             this.gameOver()
         }
         
+        // triggers if space key is pressed down
         if (this.keyIsDown) {
             this.keyWentUp = false
             this.fisher.setThrowPower();
             this.hud.setBarPower(this.fisher.calculatedPower);
         }
+        // triggers if space key is up
         if (this.keyWentUp) {
             this.keyIsDown = false
             this.hook.setPosition(this.fisher.calculatedPower+200, 300);    //+200 is the pixel width of the ground
@@ -127,6 +131,19 @@ class Game {
     }
     gameWonCallback(callback) {
         this.gameWon = callback
+    }
+    
+    gameWonCallback(callback) {
+        this.gameWon = callback
+    }
+    resetGameCallback(){
+        this.fisher.health = 5
+        if (this.fish.length < 3) {
+            this.fish = []
+            for (let i = 0; i < 3; i++){
+                this.fish.push(new Fish(this.canvas));
+            }
+        }
     }
 }
 

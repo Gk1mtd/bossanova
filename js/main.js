@@ -12,9 +12,12 @@ function buildSplashScreen() {
         <section class="splash-screen">
             <img src="./images/splash.png" alt="Bossa Nova Splash">
         </section>
-            <div class="goFish">
-                <img src="./images/gofish_button.png" alt="Start Game">
-            </div>
+        <p>hold "Space" to launch the hook</p>
+        <p>Catch all fish</p>
+        <p>loose after 5 tries</p>
+        <div class="goFish">
+            <img src="./images/gofish_button.png" alt="Start Game">
+        </div>
       `);
     const startButton = document.querySelector(".goFish");
     startButton.addEventListener("click", buildGameScreen);
@@ -52,7 +55,7 @@ function buildGameScreen() {
     fillMainContainerContent(`
         <section class="game-screen">
             <canvas></canvas>
-            </section>  
+            </section>
         <div class="goFish">
             <img src="./images/restart_button.png" alt="restart Game">
         </div>

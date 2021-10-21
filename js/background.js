@@ -9,6 +9,7 @@ class Background {
         this.waveWidth = 800;
         this.waveHeight = 315;
         this.waveScale = 0.1;
+        this.posY = 300
     }
 
     draw() {
@@ -20,12 +21,14 @@ class Background {
         for(let i = 0; i < 8; i++){
             this.ctx.drawImage(
                 this.imgWaves,                      //image
-                200+i*this.waveWidth*this.waveScale,                                //posx
-                this.canvas.clientHeight * 0.5,     // posy
+                200+i*this.waveWidth*this.waveScale,//posx
+                this.posY,                          // posy
                 this.waveWidth * this.waveScale,    //width
                 this.waveHeight * this.waveScale    //height
             );
         }
+        if (this.posY <= 320)
+            this.posY++
     }
     
     drawGround() {

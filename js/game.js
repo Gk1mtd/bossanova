@@ -14,6 +14,9 @@ class Game {
         this.gameOver
         this.gameWon
 
+        this.keyIsDown = false
+        this.keyWentUp = false
+
         this.background = new Background(this.canvas);
         this.hud = new HUD(this.canvas);
         //adding 3 fish into an array for later drawing
@@ -23,23 +26,18 @@ class Game {
         this.hook = new Hook(this.canvas);
 
         /* Event listener for space key
-            if "space key" is pressed the throw power of the fisher object will be raised
-            if "space key" is released the hook will be thrown to the calculated distance (calculated in fisher object)
-                HUD power bar will be filled as well
+            In UpdateLoop:
+                if "space key" is pressed the throw power of the fisher object will be raised
+                if "space key" is released the hook will be thrown to the calculated distance (calculated in fisher object)
+                    HUD power bar will be filled as well
         */
         document.addEventListener("keydown", (event) => {
-            if (event.code === "Space") {
-                this.fisher.setThrowPower();
-                this.hud.setBarPower(this.fisher.calculatedPower);
-            }
+            this.keyIsDown = true
+            this.keyWentUp = false
         });
         document.addEventListener("keyup", (event) => {
-            if (event.code === "Space") {
-                this.hook.setPosition(this.fisher.calculatedPower+200, 300);    //+200 is the pixel width of the ground
-                this.fisher.resetThrowPower();
-                this.checkHookCollisionWithFish();
-                this.fisher.setHealth(-1)
-            }
+            this.keyIsDown = false
+            this.keyWentUp = true
         });
     }
 
@@ -47,7 +45,6 @@ class Game {
         const loop = () => {
             this.clearCanvas();
             this.updateGame();
-            // this.checkAllCollisions();
             this.drawCanvas();
             if (!this.isGameOver && !this.isGameWon) {
                 window.requestAnimationFrame(loop);
@@ -70,18 +67,38 @@ class Game {
 
     updateGame() {
         // checks if fish array is empty, if empty all fish are catched and game is over: Won!
-        if (this.fish.length === 0)
+        if (this.fish.length === 0) {
             this.isGameWon = true
+        }
         
         // checks if fisher has no health, sets gameover if so: Lost!
-        if (this.fisher.health === 0)
+        if (this.fisher.health === 0){
+            console.log("fishers Health is ZERO", this.fisher.health);
             this.isGameOver = true
+        }
         
         // checks if game is over
-        if (this.isGameWon)
+        if (this.isGameWon){
             this.gameWon()
-        else if (this.isGameOver)
+        }
+        else if (this.isGameOver) {
             this.gameOver()
+        }
+        
+        if (this.keyIsDown) {
+            this.keyWentUp = false
+            this.fisher.setThrowPower();
+            this.hud.setBarPower(this.fisher.calculatedPower);
+        }
+        if (this.keyWentUp) {
+            this.keyIsDown = false
+            this.hook.setPosition(this.fisher.calculatedPower+200, 300);    //+200 is the pixel width of the ground
+            this.fisher.resetThrowPower();
+            this.checkHookCollisionWithFish();
+            console.log("key is up");
+            this.fisher.reduceHealth()
+            this.keyWentUp = false
+        }
         
     }
 

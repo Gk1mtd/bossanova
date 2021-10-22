@@ -20,16 +20,6 @@ class Background {
     }
     
     drawWaves() {
-        // for(let i = 0; i < 8; i++){
-        //     this.ctx.drawImage(
-        //         this.imgWaves,                      //image
-        //         this.posX+i*this.waveWidth*this.waveScale,//posx
-        //         this.posY,                          // posy
-        //         this.waveWidth * this.waveScale,    //width
-        //         this.waveHeight * this.waveScale    //height
-        //     );
-        // }
-
         for(let i = 0; i < 75; i++){
             this.ctx.drawImage(
                 this.imgWaves,                      //image

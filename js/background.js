@@ -10,6 +10,8 @@ class Background {
         this.waveHeight = 315;
         this.waveScale = 0.1;
         this.posY = 300
+        this.posX = 200
+        this.counter = 0
     }
 
     draw() {
@@ -18,17 +20,26 @@ class Background {
     }
     
     drawWaves() {
+        // for(let i = 0; i < 8; i++){
+        //     this.ctx.drawImage(
+        //         this.imgWaves,                      //image
+        //         this.posX+i*this.waveWidth*this.waveScale,//posx
+        //         this.posY,                          // posy
+        //         this.waveWidth * this.waveScale,    //width
+        //         this.waveHeight * this.waveScale    //height
+        //     );
+        // }
+
         for(let i = 0; i < 8; i++){
             this.ctx.drawImage(
                 this.imgWaves,                      //image
-                200+i*this.waveWidth*this.waveScale,//posx
-                this.posY,                          // posy
+                this.posX+i*80,//posx
+                15*Math.sin((i)*this.posX + this.counter)+300,                          // posy
                 this.waveWidth * this.waveScale,    //width
                 this.waveHeight * this.waveScale    //height
             );
         }
-        // if (this.posY <= 320)
-        //     this.posY++
+        this.counter++
     }
     
     drawGround() {

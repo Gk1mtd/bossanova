@@ -6,9 +6,9 @@ class Background {
         this.ctx = this.canvas.getContext("2d");
         this.imgWaves = new Image();
         this.imgWaves.src = "./images/waves.png";
-        this.waveWidth = 800;
-        this.waveHeight = 315;
-        this.waveScale = 0.1;
+        this.waveWidth = 50;
+        this.waveHeight = 50;
+        this.waveScale = 0.2;
         this.posY = 300
         this.posX = 200
         this.counter = 0
@@ -30,16 +30,16 @@ class Background {
         //     );
         // }
 
-        for(let i = 0; i < 8; i++){
+        for(let i = 0; i < 75; i++){
             this.ctx.drawImage(
                 this.imgWaves,                      //image
-                this.posX+i*80,//posx
-                15*Math.sin((i)*this.posX + this.counter)+300,                          // posy
+                this.posX+i*10,                      //posx // how close the images are
+                5*Math.sin((i)*this.posX + this.counter)+300,   // posy // amplitude*sin(b*x+movesHorizontal)+movesUpDown
                 this.waveWidth * this.waveScale,    //width
                 this.waveHeight * this.waveScale    //height
             );
         }
-        this.counter+=0.01
+        this.counter+=0.02  //speed of the waves
     }
     
     drawGround() {

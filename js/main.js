@@ -30,7 +30,7 @@ function buildGameWon() {
         </section>
         <h1>You Won!</h1>
         <div class="goFish">
-            <img src="./images/gameOverWon.png" alt="Game Over!">
+            <img src="./images/restart_button.png" alt="restart Game">
         </div>
       `);
     const startButton = document.querySelector(".goFish");
@@ -44,7 +44,7 @@ function buildGameOver() {
         </section>
         <h1>You Lost!</h1>
         <div class="goFish">
-            <img src="./images/gameOver.png" alt="Game Over!">
+            <img src="./images/restart_button.png" alt="restart Game">
         </div>
       `);
     const startButton = document.querySelector(".goFish");
@@ -56,9 +56,6 @@ function buildGameScreen() {
         <section class="game-screen">
             <canvas></canvas>
             </section>
-        <div class="goFish">
-            <img src="./images/restart_button.png" alt="restart Game">
-        </div>
         <audio id="myAudio" loop>
             <source src="sound/bossa_nova.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
@@ -69,14 +66,13 @@ function buildGameScreen() {
     let music = document.getElementById("myAudio"); 
     music.play(); 
     // to restart the game immediately 
-    const startButton = document.querySelector(".goFish");
-    startButton.addEventListener("click", buildGameScreen);
+    // const startButton = document.querySelector(".goFish");
+    // startButton.addEventListener("click", buildGameScreen);
 
     const canvasElement = document.querySelector("canvas");
     canvasElement.setAttribute("width", 800);
     canvasElement.setAttribute("height", 600);
 
-    
     const game = new Game(canvasElement);
     game.startLoop();
     

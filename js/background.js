@@ -39,7 +39,7 @@ class Background {
                 this.waveHeight * this.waveScale    //height
             );
         }
-        this.counter++
+        this.counter+=0.01
     }
     
     drawGround() {

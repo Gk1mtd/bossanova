@@ -27,8 +27,8 @@ class Background {
                 this.waveHeight * this.waveScale    //height
             );
         }
-        if (this.posY <= 320)
-            this.posY++
+        // if (this.posY <= 320)
+        //     this.posY++
     }
     
     drawGround() {

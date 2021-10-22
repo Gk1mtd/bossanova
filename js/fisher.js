@@ -47,7 +47,7 @@ class Fisher{
     setThrowPower() {
         this.throwPower++
         // calculate Power
-        this.calculatedPower = this.throwPower**1.6
+        this.calculatedPower = this.throwPower**1.3
     }
     resetThrowPower() {
         this.throwPower = 0
@@ -56,7 +56,7 @@ class Fisher{
     // 
     reduceHealth () {
         this.health--
-        console.log("Fisher lost Live", this.health);
+        console.log("Fisher lost Live", this.health, this);
     }
 }
 

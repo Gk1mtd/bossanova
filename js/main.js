@@ -30,7 +30,7 @@ function buildGameWon() {
         </section>
         <h1>You Won!</h1>
         <div class="goFish">
-            <img src="./images/restart_button.png" alt="restart Game">
+            <img src="./images/gameOverWon.png" alt="restart Game">
         </div>
       `);
     const startButton = document.querySelector(".goFish");

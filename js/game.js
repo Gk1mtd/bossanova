@@ -68,7 +68,6 @@ class Game {
         
         // checks if fisher has no health, sets gameover if so: Lost!
         if (this.fisher.health === 0){
-            console.log("fishers Health is ZERO", this.fisher.health, this.fisher);
             this.isGameOver = true
         }
         
@@ -89,10 +88,10 @@ class Game {
         // triggers if space key is up
         if (this.keyWentUp) {
             this.keyIsDown = false
+            this.hook.setIsInWater(true)
             this.hook.setPosition(this.fisher.calculatedPower+200, 300);    //+200 is the pixel width of the ground
             this.fisher.resetThrowPower();
             this.checkHookCollisionWithFish();
-            console.log("key is up");
             this.fisher.reduceHealth()
             this.keyWentUp = false
         }
@@ -120,6 +119,7 @@ class Game {
                 this.hook.getPosition().posX <
                     fish.posX + (fish.fishWidth * fish.fishScale)/2;
             if(isHookInFish){
+                this.hook.setIsInWater(false)
                 this.hook.setPosition(fish.posX, fish.posY)
                 this.fish.splice(this.fish.indexOf(fish), 1)
                 break   // so only first fish will be catched, instead of all //if fish are stacked

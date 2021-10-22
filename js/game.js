@@ -52,21 +52,14 @@ class Game {
                 window.requestAnimationFrame(loop);
             }
         };
-        window.requestAnimationFrame(loop);
+        loop()
+        //window.requestAnimationFrame(loop);
     }
 
-    drawCanvas() {
-        this.background.draw();
-        this.hud.draw();
-        this.fisher.draw();
-        this.hook.drawHook();
-        this.fisher.drawLine(this.hook.getPosition()); //draws the line from fishers rod to hook
-        //draw fish
-        this.fish.forEach((fish) => {
-            fish.draw();
-        });
+    clearCanvas() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
-
+    
     updateGame() {
         // checks if fish array is empty, if empty all fish are catched and game is over: Won!
         if (this.fish.length === 0) {
@@ -75,7 +68,7 @@ class Game {
         
         // checks if fisher has no health, sets gameover if so: Lost!
         if (this.fisher.health === 0){
-            console.log("fishers Health is ZERO", this.fisher.health);
+            console.log("fishers Health is ZERO", this.fisher.health, this.fisher);
             this.isGameOver = true
         }
         
@@ -106,6 +99,18 @@ class Game {
         
     }
 
+    drawCanvas() {
+        this.background.draw();
+        this.hud.draw();
+        this.fisher.draw();
+        this.hook.drawHook();
+        this.fisher.drawLine(this.hook.getPosition()); //draws the line from fishers rod to hook
+        //draw fish
+        this.fish.forEach((fish) => {
+            fish.draw();
+        });
+    }
+
     checkHookCollisionWithFish() {
         // check if hook is on collision with a fish on x-axis, removes the fish afterwards
         for (let fish of this.fish) {
@@ -122,20 +127,13 @@ class Game {
         }
     }
 
-    clearCanvas() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    }
-
     gameOverCallback(callback) {
         this.gameOver = callback
     }
     gameWonCallback(callback) {
         this.gameWon = callback
     }
-    
-    gameWonCallback(callback) {
-        this.gameWon = callback
-    }
+    // this seems to be unnecessary
     resetGameCallback(){
         this.fisher.health = 5
         if (this.fish.length < 3) {

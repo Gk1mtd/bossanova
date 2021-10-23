@@ -60,25 +60,29 @@ function buildGameScreen() {
             <source src="sound/bossa_nova.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
+        <div class="goFish">
+            <img src="./images/restart_button.png" alt="restart Game">
+        </div>
       `);
     
     // add music, plays when game screen starts or restarts
     let music = document.getElementById("myAudio"); 
     music.play(); 
-    // to restart the game immediately 
-    // const startButton = document.querySelector(".goFish");
-    // startButton.addEventListener("click", buildGameScreen);
-
+    // to restart the game immediately, by resetting fisher and fish
+    const startButton = document.querySelector(".goFish");
+    
     const canvasElement = document.querySelector("canvas");
     canvasElement.setAttribute("width", 800);
     canvasElement.setAttribute("height", 600);
-
+    
     const game = new Game(canvasElement);
     game.startLoop();
     
     game.gameOverCallback(buildGameOver)
     game.gameWonCallback(buildGameWon)
-    game.resetGameCallback()
+    startButton.addEventListener("click", event => {
+        game.resetGameCallback()
+    });
 }
 
 const main = () => {

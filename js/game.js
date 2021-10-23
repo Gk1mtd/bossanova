@@ -21,9 +21,7 @@ class Game {
         this.hud = new HUD(this.canvas);
         //adding 3 fish into an array for later drawing
         this.fish = [];
-        for (let i = 0; i < 3; i++){
-            this.fish.push(new Fish(this.canvas));
-        }
+        this.setFish()
         this.fisher = new Fisher(this.canvas);
         this.hook = new Hook(this.canvas);
 
@@ -41,6 +39,12 @@ class Game {
             this.keyIsDown = false
             this.keyWentUp = true
         });
+    }
+
+    setFish() {
+        for (let i = 0; i < 3; i++){
+            this.fish.push(new Fish(this.canvas));
+        }
     }
 
     startLoop() {
@@ -133,15 +137,12 @@ class Game {
     gameWonCallback(callback) {
         this.gameWon = callback
     }
-    // this seems to be unnecessary
     resetGameCallback(){
         this.fisher.health = 5
-        if (this.fish.length < 3) {
-            this.fish = []
-            for (let i = 0; i < 3; i++){
-                this.fish.push(new Fish(this.canvas));
-            }
-        }
+        this.hook.setPosition(200, 200)
+        this.hud.setBarPower(0)
+        this.fish = []
+        this.setFish()
     }
 }
 

@@ -83,6 +83,7 @@ function buildGameScreen() {
     startButton.addEventListener("click", (event) => {
         game.resetGameCallback();
     });
+    
     /* Event listener for space key
             In UpdateLoop:
                 if "space key" is pressed the throw power of the fisher object will be raised

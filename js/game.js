@@ -84,7 +84,6 @@ class Game {
             this.fisher.reduceHealth()
             this.keyWentUp = false
         }
-        
     }
 
     drawCanvas() {
@@ -95,6 +94,7 @@ class Game {
         this.fisher.drawLine(this.hook.getPosition()); //draws the line from fishers rod to hook
         //draw fish
         this.fish.forEach((fish) => {
+            fish.posX < this.hook.getPosition().posX ? fish.setFacing(1) : fish.setFacing(0)
             fish.draw();
         });
     }

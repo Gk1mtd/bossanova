@@ -17,7 +17,7 @@ class Fish {
         this.pondYStart = canvas.clientHeight * 0.6;
         this.pondSizeWidth = canvas.clientWidth;
         this.pondSizeHeight = 600;
-        this.fishFacing = "right"
+        this.fishFacing = 1     //0 = left, 1 = right
         this.posX =
             randomRange(
                 this.pondXStart + (this.fishWidth * this.fishScale) / 2,
@@ -31,33 +31,37 @@ class Fish {
             ) -
             (this.fishHeight * this.fishScale) / 2;
 
-            this.timer = randomRange(0, Math.PI) // for individual animation begin
-        }
+        this.timer = randomRange(0, Math.PI) // for individual animation begin
+    }
         
-        draw() {
-            // this.ctx.fillStyle = "red"       //draws a red rect on fish position
-            // this.ctx.fillRect(this.posX, this.posY, 10, 10)
-            this.timer += 0.02
-            this.posY = 0.25*Math.sin(5*this.posX + this.timer)+this.posY,   // posy // amplitude*sin(b*x+movesHorizontal)+movesUpDown
-            this.ctx.fillStyle = "white";
-            if (this.fishFacing === "right"){
-                this.ctx.drawImage(
-                    this.imgFishRight,
-                    this.posX - (this.fishWidth * this.fishScale) / 2,
-                    this.posY - (this.fishHeight * this.fishScale) / 2,
-                    this.fishWidth * this.fishScale,
-                    this.fishHeight * this.fishScale
-                );
-            }
-            else if (this.fishFacing === "left") {
-                this.ctx.drawImage(
-                    this.imgFishLeft,
-                    this.posX - (this.fishWidth * this.fishScale) / 2,
-                    this.posY - (this.fishHeight * this.fishScale) / 2,
-                    this.fishWidth * this.fishScale,
-                    this.fishHeight * this.fishScale
-                );
-            }
+    draw() {
+        // this.ctx.fillStyle = "red"       //draws a red rect on fish position
+        // this.ctx.fillRect(this.posX, this.posY, 10, 10)
+        this.timer += 0.02
+        this.posY = 0.25*Math.sin(5*this.posX + this.timer)+this.posY,   // posy // amplitude*sin(b*x+movesHorizontal)+movesUpDown
+        this.ctx.fillStyle = "white";
+        if (this.fishFacing === 1){
+            this.ctx.drawImage(
+                this.imgFishRight,
+                this.posX - (this.fishWidth * this.fishScale) / 2,
+                this.posY - (this.fishHeight * this.fishScale) / 2,
+                this.fishWidth * this.fishScale,
+                this.fishHeight * this.fishScale
+            );
+        }
+        else if (this.fishFacing === 0) {
+            this.ctx.drawImage(
+                this.imgFishLeft,
+                this.posX - (this.fishWidth * this.fishScale) / 2,
+                this.posY - (this.fishHeight * this.fishScale) / 2,
+                this.fishWidth * this.fishScale,
+                this.fishHeight * this.fishScale
+            );
+        }
+    }
+
+    setFacing (newDirection) {
+        this.fishFacing = newDirection
     }
 }
 

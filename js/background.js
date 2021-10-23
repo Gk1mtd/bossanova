@@ -11,7 +11,7 @@ class Background {
         this.waveScale = 0.2;
         this.posY = 300
         this.posX = 200
-        this.counter = 0
+        this.timer = 0
     }
 
     draw() {
@@ -24,12 +24,12 @@ class Background {
             this.ctx.drawImage(
                 this.imgWaves,                      //image
                 this.posX+i*10,                      //posx // how close the images are
-                5*Math.sin((i)*this.posX + this.counter)+300,   // posy // amplitude*sin(b*x+movesHorizontal)+movesUpDown
+                5*Math.sin((i)*this.posX + this.timer)+300,   // posy // amplitude*sin(b*x+movesHorizontal)+movesUpDown
                 this.waveWidth * this.waveScale,    //width
                 this.waveHeight * this.waveScale    //height
             );
         }
-        this.counter+=0.02  //speed of the waves
+        this.timer+=0.02  //speed of the waves
     }
     
     drawGround() {

@@ -30,11 +30,15 @@ class Fish {
                 this.pondSizeHeight
             ) -
             (this.fishHeight * this.fishScale) / 2;
+
+            this.timer = randomRange(0, Math.PI) // for individual animation begin
         }
         
         draw() {
             // this.ctx.fillStyle = "red"       //draws a red rect on fish position
             // this.ctx.fillRect(this.posX, this.posY, 10, 10)
+            this.timer += 0.02
+            this.posY = 0.25*Math.sin(5*this.posX + this.timer)+this.posY,   // posy // amplitude*sin(b*x+movesHorizontal)+movesUpDown
             this.ctx.fillStyle = "white";
             if (this.fishFacing === "right"){
                 this.ctx.drawImage(

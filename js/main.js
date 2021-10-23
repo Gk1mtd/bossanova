@@ -64,29 +64,43 @@ function buildGameScreen() {
             <img src="./images/restart_button.png" alt="restart Game">
         </div>
       `);
-    
+
     // add music, plays when game screen starts or restarts
-    let music = document.getElementById("myAudio"); 
-    music.play(); 
+    let music = document.getElementById("myAudio");
+    music.play();
     // to restart the game immediately, by resetting fisher and fish
     const startButton = document.querySelector(".goFish");
-    
+
     const canvasElement = document.querySelector("canvas");
     canvasElement.setAttribute("width", 800);
     canvasElement.setAttribute("height", 600);
-    
+
     const game = new Game(canvasElement);
     game.startLoop();
-    
-    game.gameOverCallback(buildGameOver)
-    game.gameWonCallback(buildGameWon)
-    startButton.addEventListener("click", event => {
-        game.resetGameCallback()
+
+    game.gameOverCallback(buildGameOver);
+    game.gameWonCallback(buildGameWon);
+    startButton.addEventListener("click", (event) => {
+        game.resetGameCallback();
+    });
+    /* Event listener for space key
+            In UpdateLoop:
+                if "space key" is pressed the throw power of the fisher object will be raised
+                if "space key" is released the hook will be thrown to the calculated distance (calculated in fisher object)
+                    HUD power bar will be filled as well
+        */
+    document.addEventListener("keydown", (event) => {
+        game.keyIsDown = true;
+        game.keyWentUp = false;
+    });
+    document.addEventListener("keyup", (event) => {
+        game.keyIsDown = false;
+        game.keyWentUp = true;
     });
 }
 
 const main = () => {
-    buildSplashScreen();      //uncomment this to start with splashscreen
+    buildSplashScreen(); //uncomment this to start with splashscreen
     //buildGameScreen();          //comment this to start with splashscreen
 };
 

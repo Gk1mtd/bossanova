@@ -24,21 +24,6 @@ class Game {
         this.setFish()
         this.fisher = new Fisher(this.canvas);
         this.hook = new Hook(this.canvas);
-
-        /* Event listener for space key
-            In UpdateLoop:
-                if "space key" is pressed the throw power of the fisher object will be raised
-                if "space key" is released the hook will be thrown to the calculated distance (calculated in fisher object)
-                    HUD power bar will be filled as well
-        */
-        document.addEventListener("keydown", (event) => {
-            this.keyIsDown = true
-            this.keyWentUp = false
-        });
-        document.addEventListener("keyup", (event) => {
-            this.keyIsDown = false
-            this.keyWentUp = true
-        });
     }
 
     setFish() {

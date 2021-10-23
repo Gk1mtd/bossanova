@@ -56,7 +56,6 @@ class Fisher{
     // 
     reduceHealth () {
         this.health--
-        console.log("Fisher lost Live", this.health, this);
     }
 }
 

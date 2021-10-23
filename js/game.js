@@ -124,6 +124,7 @@ class Game {
     }
     resetGameCallback(){
         this.fisher.health = 5
+        this.hook.isInWater = false
         this.hook.setPosition(200, 200)
         this.hud.setBarPower(0)
         this.fish = []

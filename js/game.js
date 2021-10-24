@@ -60,7 +60,7 @@ class Game {
             this.isGameOver = true;
         }
         // if health of fisher down to zero and the hook didnt catched anything set gameOver state
-        if (this.fisher.health === 0 && this.hook.posY > 600) {
+        if (this.fisher.health === 0 && this.hook.posY > this.canvas.height) {
             this.isGameOver = true;
         }
 

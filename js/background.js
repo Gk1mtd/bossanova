@@ -12,17 +12,10 @@ class Background {
         this.wave.posX = 200
         this.wave.posY = 300
         //cloud
-        this.imgCloud = new Image();
-        this.imgCloud.src = "./images/cloud.png";
-        this.cloudWidth = this.imgCloud.width;
-        this.cloudHeight = this.imgCloud.height;
-        this.cloudScale = 0.1;
-        this.cloudPosY = 200
-        this.cloudPosX = 0
-        this.cloudTimer = 0
+        this.cloud = new BackgroundImage("./images/cloud.png", 0.1)
+        this.cloud.posX = -this.cloud.width*this.cloud.scale
+        this.cloud.posY = 200
     }
-
-    
 
     draw() {
         this.drawWaves()
@@ -41,20 +34,19 @@ class Background {
             );
         }
         this.wave.animationTimer+=0.02  //speed of the waves
-        console.log(this.wave.height);
     }
 
     drawClouds(){
         for(let i = 0; i < 3; i++){
             this.ctx.drawImage(
-                this.imgCloud,                      //image
-                this.cloudPosX+i*50+this.cloudTimer,                      //wavePosx // how close the images are
-                this.cloudPosY,   // wavePosy // amplitude*sin(b*x+movesHorizontal)+movesUpDown
-                this.cloudWidth * this.cloudScale,    //width
-                this.cloudHeight * this.cloudScale    //height
+                this.cloud.img,                      //image
+                this.cloud.posX+i*50+this.cloud.animationTimer,                      //wavePosx // how close the images are
+                this.cloud.posY,   // wavePosy // amplitude*sin(b*x+movesHorizontal)+movesUpDown
+                this.cloud.width * this.cloud.scale,    //width
+                this.cloud.height * this.cloud.scale    //height
             );
         }
-        this.cloudTimer+=0.1  //speed of the waves
+        this.cloud.animationTimer+=0.1  //speed of the waves
     }
     
     drawGround() {

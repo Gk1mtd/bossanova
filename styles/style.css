@@ -26,10 +26,6 @@ body {
     height: auto;
 }
 
-canvas {
-    /* border: 5px solid white; */
-}
-
 h1 {
     margin-bottom: 50px;
 }

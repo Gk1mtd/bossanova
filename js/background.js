@@ -8,11 +8,11 @@ class Background {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d");
         //wave
-        this.wave = new BackgroundImage("./images/wave.png", 0.2)
+        this.wave = new BackgroundImage("./images/wave.png", 0.2, 50, 50)
         this.wave.posX = 200
         this.wave.posY = 300
         //cloud
-        this.cloud = new BackgroundImage("./images/cloud.png", 0.1)
+        this.cloud = new BackgroundImage("./images/cloud.png", 0.1, 400, 400)
         this.cloud.posX = -this.cloud.width*this.cloud.scale
         this.cloud.posY = 200
     }

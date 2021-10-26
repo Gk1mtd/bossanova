@@ -2,11 +2,13 @@
 
 import Game from "./game.js";
 
+// builds html on demand
 function fillMainContainerContent(newHTMLContent) {
     const main = document.querySelector("main");
     main.innerHTML = newHTMLContent;
 }
 
+// builds splashscreen, first thing a player will see
 function buildSplashScreen() {
     fillMainContainerContent(`
         <section class="splash-screen">
@@ -23,6 +25,7 @@ function buildSplashScreen() {
     startButton.addEventListener("click", buildGameScreen);
 }
 
+// builds GameWon screen
 function buildGameWon() {
     fillMainContainerContent(`
         <section class="splash-screen">
@@ -37,6 +40,7 @@ function buildGameWon() {
     startButton.addEventListener("click", buildGameScreen);
 }
 
+// builds GameOver screen
 function buildGameOver() {
     fillMainContainerContent(`
         <section class="splash-screen">
@@ -51,6 +55,9 @@ function buildGameOver() {
     startButton.addEventListener("click", buildGameScreen);
 }
 
+/*builds the actual game screen, canvas is created and music will be played in a loop
+will also establish the game itself
+eventlisteners reside here for the game */
 function buildGameScreen() {
     fillMainContainerContent(`
         <section class="game-screen">

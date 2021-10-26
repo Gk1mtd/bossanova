@@ -15,47 +15,55 @@ The game ends if you caught all fish or all your strings break.
 - game has 3 fish in the pond
 - the player can throw out hooks in the pond, by pressing a button
 - how far the hook is thrown, depends on how often or long the button was pressed
-- a string breaks after a random amount of throws (min 5 times)
+- a string breaks after every throws (min 5 times)
 ​
 ## Backlog
 ​
-- moving fish
-- random fish size
-- to catch a fish, you have to reel them in, by pressing the button multiple times
-- a fish can battle against the players attempt to reel it in
-- the finshing rod string can break, if the fish tries to break free very hard or the player reels to hard
-- reeling in the fish moves the fish closer to the player
-- if the fish is close to the player, while hooked, he is carched
-- bossa nova music playing in the background
+- moving fish       x
+- random fish size  x
+- to catch a fish, you have to reel them in, by pressing the button multiple times      -
+- a fish can battle against the players attempt to reel it in                                   -
+- the finshing rod string can break, if the fish tries to break free very hard or the player reels to hard  -
+- reeling in the fish moves the fish closer to the player                                               -
+- if the fish is close to the player, while hooked, he is carched                                           -
+- bossa nova music playing in the background        x
 ​
 ## Data Structure
 ​
 # main.js
 ​
+- fillMainContainerContent()
 - buildSplashScreen () {}
 - buildGameScreen () {}
-- buildGameOverScreen () {}
+- buildGameWon () {}
+- buildGameOver () {}
 ​
 # game.js
 ​
 - Game () {}
+- setFish
 - startLoop () {}
-- checkCollisions () {}
 - clearCanvas () {}
-- updateCanvas () {}
+- updateGame () {}
 - drawCanvas () {}
-- GameOver () {}
+- checkHookCollisionWithFish
+- gameOverCallback () {}
+- gameWonCallback () {}
+- resetGameCallback () {}
 ​
-# player.js 
+# fisher.js 
 ​
-- Player () {
+- Fisher () {
     this.x
     this.y
     this.strings
 }
-- draw () {}
-- throwHook () {}
-- reelHook
+- drawFisher () {}
+- drawString
+- drawLine
+- setThrowPower () {}
+- resetThrowPower () {}
+- reduceHealth
 ​
 # fish.js 
 ​
@@ -66,9 +74,7 @@ The game ends if you caught all fish or all your strings break.
     this.size
 }
 - draw () {}
-- move () {}
-- checkCollisionPond () {}
-- checkCollisionHook()
+- setFacing () {}
 ​
 # hud.js 
 ​
@@ -76,6 +82,34 @@ The game ends if you caught all fish or all your strings break.
     this.throwBar
 }
 - draw () {}
+- drawBar () {}
+- drawPowerinBar () {}
+- setBarPower () {}
+
+# hook.js 
+​
+- Hook () {}
+- drawHook () {}
+- setToFloatDown () {}
+- setPosition () {}
+- getPosition () {}
+
+# jsRandomMinMaxInt.js
+​
+- randomRange () {}
+
+# background.js 
+​
+- Background () {}
+- createClouds () {}
+- draw () {}
+- drawWaves () {}
+- drawClouds () {}
+- drawGround () {}
+
+# backgroundImage.js 
+​
+- BackgroundImage () {}
 ​
 ## States and States Transitions
 Definition of the different states and their transition (transition functions)
@@ -83,30 +117,31 @@ Definition of the different states and their transition (transition functions)
 - splashScreen
 - gameScreen
 - gameOverScreen
+- gameWonScreen
 ​
 ## Task
 ​
 - main
-    - buildDom
-    - buildSplashScreen
-    - buildGameScreen
-    - buildGameOverScreen
-    - addEventListener
-    - startLoop
-    - buildCanvas
-    - updateCanvas
-    - drawCanvas
+    - buildDom              x
+    - buildSplashScreen     x
+    - buildGameScreen       x
+    - buildGameOverScreen   x
+    - addEventListener      x
+    - startLoop             x
+    - buildCanvas           x
+    - updateCanvas          x
+    - drawCanvas            x
 - game
-    - checkCollision
-    - GameOver
-    - add event listener
+    - checkCollision        x
+    - GameOver              x
+    - add event listener    x
 - player
-    - draw player
-    - build throw mechanic
+    - draw player           x
+    - build throw mechanic  x
 - fish
-    - draw fish
-    - build check collision pond mechanic
-    - build check collision hook mechanic
+    - draw fish             x
+    - build check collision pond mechanic   x
+    - build check collision hook mechanic   x
 ​
 ## Links
 https://gk1mtd.github.io/bossanova/

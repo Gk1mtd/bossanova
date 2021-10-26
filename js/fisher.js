@@ -1,5 +1,6 @@
 "use strict"
 
+// could have been extended by backgroundImage class, but later was introduced very late
 class Fisher{
     constructor(canvas) {
         this.canvas = canvas;
@@ -28,13 +29,15 @@ class Fisher{
         this.ctx.drawImage(this.fisherImg, 30, 110, this.fisherWidth*this.fisherScale, this.fisherHeight*this.fisherScale)
     }
     
+    // draws the strings left, each string represents the tries left, could have been in the HUD class
     drawString() {
         for (let i = 0; i < this.health; i++){
             this.ctx.drawImage(this.stringImg, 20+i*20, 380, this.stringWidth*this.stringScale, this.stringHeight*this.stringScale)
         }
-
+        
     }
-
+    
+    // draws the string from fishing rod to hook
     drawLine(hookPosition) {
         this.ctx.beginPath();
         this.ctx.moveTo(200, 120);
@@ -44,6 +47,7 @@ class Fisher{
         this.ctx.stroke(); 
     }
 
+    // how far the hook will be placed away from the fisher
     setThrowPower() {
         this.throwPower++
         // calculate Power
@@ -53,7 +57,7 @@ class Fisher{
         this.throwPower = 0
     }
 
-    // 
+    // reduces fisher health/tries
     reduceHealth () {
         this.health--
     }

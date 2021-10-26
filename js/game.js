@@ -1,4 +1,5 @@
 "use strict";
+
 import Background from "./background.js";
 import Fish from "./fish.js";
 import Fisher from "./fisher.js";
@@ -9,14 +10,16 @@ class Game {
     constructor(canvas) {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d");
+        // the game checks those in the update to end the game
         this.isGameOver = false;
         this.isGameWon = false;
+        // function variables, filled by the main class, to make the game able to end itself
         this.gameOver;
         this.gameWon;
-
+        // through eventlisteners this varaibles will change - doing it like this prevents bubbling of the keys (smoother button pressed recognition)
         this.keyIsDown = false;
         this.keyWentUp = false;
-
+        //initiates some drawing classes
         this.background = new Background(this.canvas);
         this.hud = new HUD(this.canvas);
         //adding 3 fish into an array for later drawing
@@ -26,29 +29,33 @@ class Game {
         this.hook = new Hook(this.canvas);
     }
 
+    // adds new fish to the fish array
     setFish() {
         for (let i = 0; i < 3; i++) {
             this.fish.push(new Fish(this.canvas));
         }
     }
 
+    // starts the actual game loop, calls important game functions
     startLoop() {
         const loop = () => {
             this.clearCanvas();
             this.updateGame();
             this.drawCanvas();
+            // as long game is not over, loop will repeat
             if (!this.isGameOver && !this.isGameWon) {
                 window.requestAnimationFrame(loop);
             }
         };
         loop();
-        //window.requestAnimationFrame(loop);
     }
 
+    // clears the canvas of everything
     clearCanvas() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
+    // checks game conditions
     updateGame() {
         // checks if fish array is empty, if empty all fish are catched and game is over: Won!
         if (this.fish.length === 0) {
@@ -77,7 +84,7 @@ class Game {
             this.fisher.setThrowPower();
             this.hud.setBarPower(this.fisher.calculatedPower);
         }
-        // triggers if space key is up
+        // triggers if space key is up and builds up throwing power of the hook, also reduces health/tries of fisher
         if (this.keyWentUp) {
             this.keyIsDown = false;
             this.hook.setToFloatDown(true);
@@ -90,6 +97,7 @@ class Game {
         this.checkHookCollisionWithFish();
     }
 
+    // actual drawing on the canvas happens here
     drawCanvas() {
         this.background.draw();
         this.hud.draw();

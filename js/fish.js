@@ -1,6 +1,7 @@
 "use strict";
 import randomRange from "./jsRandomMinMaxInt.js";
 
+// could have been extended by backgroundImage class, but later was introduced very late
 class Fish {
     constructor(canvas) {
         this.canvas = canvas;
@@ -40,6 +41,8 @@ class Fish {
         this.timer += 0.02
         this.posY = 0.25*Math.sin(5*this.posX + this.timer)+this.posY,   // posy // amplitude*sin(b*x+movesHorizontal)+movesUpDown
         this.ctx.fillStyle = "white";
+        
+        // sets the direction in which fish are looking to
         if (this.fishFacing === 1){
             this.ctx.drawImage(
                 this.imgFishRight,

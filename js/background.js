@@ -16,6 +16,7 @@ class Background {
         this.createClouds()
     }
 
+    // fills cloud array with 3 clouds
     createClouds() {
         for (let i = 0; i < 3; i++) {
             let randomScale = randomRange(3, 10)*0.02
@@ -31,6 +32,7 @@ class Background {
         this.drawGround()
     }
     
+    // draws waves in a sinus curved shape
     drawWaves() {
         for(let i = 0; i < 75; i++){
             this.ctx.drawImage(

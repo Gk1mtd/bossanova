@@ -12,7 +12,7 @@ class Hook{
         this.posX = 200
         // this.posY = this.canvas.clientHeight/2
         this.posY = 200
-        this.isSetToFloatDown = false
+        this.isSetToFloatDown = false   // if this is true, the hook will float slowly down
     }
 
     drawHook() {

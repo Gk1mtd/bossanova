@@ -1,5 +1,6 @@
 "use strict";
 
+// draws the HUD
 class HUD {
     constructor(canvas) {
         this.canvas = canvas;

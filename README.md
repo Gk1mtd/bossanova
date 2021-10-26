@@ -151,8 +151,8 @@ Definition of the different states and their transition (transition functions)
 ​
 ### Git
 URls for the project repo and deploy
-[Link Repo](https://github.com/Gk1mtd/bossanova)
-[Link Deploy](https://gk1mtd.github.io/bossanova/)
+- Repo [Link Repo](https://github.com/Gk1mtd/bossanova)
+- Game [Link Deploy](https://gk1mtd.github.io/bossanova/)
 ​
 ### Slides
 URls for the project presentation (slides)

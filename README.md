@@ -145,7 +145,6 @@ Definition of the different states and their transition (transition functions)
     - build check collision hook mechanic   x
 ​
 ## Links
-https://gk1mtd.github.io/bossanova/
 ​
 ### Trello
 [Link url](https://trello.com/b/srPzTGcX/bossa-nova-development)
@@ -153,7 +152,7 @@ https://gk1mtd.github.io/bossanova/
 ### Git
 URls for the project repo and deploy
 [Link Repo](https://github.com/Gk1mtd/bossanova)
-[Link Deploy]()
+[Link Deploy](https://gk1mtd.github.io/bossanova/)
 ​
 ### Slides
 URls for the project presentation (slides)

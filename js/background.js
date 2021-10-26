@@ -12,9 +12,17 @@ class Background {
         this.wave.posX = 200
         this.wave.posY = 300
         //cloud
-        this.cloud = new BackgroundImage("./images/cloud.png", 0.1, 400, 400)
-        this.cloud.posX = -this.cloud.width*this.cloud.scale
-        this.cloud.posY = 200
+        this.clouds = []
+        this.createClouds()
+    }
+
+    createClouds() {
+        for (let i = 0; i < 3; i++) {
+            let randomScale = randomRange(3, 10)*0.02
+            this.clouds[i] = new BackgroundImage("./images/cloud.png", randomScale, 400, 400)
+            this.clouds[i].posX = randomRange(0, 700)
+            this.clouds[i].posY = randomRange(0, 250)
+        }
     }
 
     draw() {
@@ -37,16 +45,21 @@ class Background {
     }
 
     drawClouds(){
-        for(let i = 0; i < 3; i++){
+        this.clouds.forEach(cloud => {
             this.ctx.drawImage(
-                this.cloud.img,                      //image
-                this.cloud.posX+i*50+this.cloud.animationTimer,                      //wavePosx // how close the images are
-                this.cloud.posY,   // wavePosy // amplitude*sin(b*x+movesHorizontal)+movesUpDown
-                this.cloud.width * this.cloud.scale,    //width
-                this.cloud.height * this.cloud.scale    //height
-            );
-        }
-        this.cloud.animationTimer+=0.1  //speed of the waves
+                cloud.img,                      //image
+                cloud.posX,                      //wavePosx // how close the images are
+                cloud.posY,   // wavePosy // amplitude*sin(b*x+movesHorizontal)+movesUpDown
+                cloud.width * cloud.scale,    //width
+                cloud.height * cloud.scale    //height)
+            )
+            cloud.posX += 0.05
+            if (cloud.posX > 800){
+                cloud.scale = randomRange(3, 10)*0.02
+                cloud.posY = randomRange(0, 250)
+                cloud.posX = randomRange(-400, -cloud.width*cloud.scale)
+            }
+        })
     }
     
     drawGround() {

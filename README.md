@@ -8,6 +8,7 @@ The fish randomly appear in the pond.
 The game ends if you caught all fish or all your strings break.
 
 ## Video
+- v1.0 https://youtu.be/cRcTFoAtnvI
 - v0.3 https://youtu.be/N2RshRSR5cY
 ​
 ## MVP (DOM - CANVAS)
